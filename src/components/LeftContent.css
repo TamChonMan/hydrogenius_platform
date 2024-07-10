@@ -1,0 +1,8 @@
+.left-content {
+    flex: 1;
+    background-color: #2e3b45;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

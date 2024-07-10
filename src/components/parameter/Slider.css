@@ -1,0 +1,65 @@
+/* Slider 容器樣式 */
+.slider-container {
+  display: flex;           /* 使用 flex 布局 */
+  align-items: center;     /* 垂直居中對齊 */
+  width: 100%;             /* 設置容器寬度為 100% */
+  margin-top: 20px;        /* 顶部外边距为 20 像素 */
+}
+.parameter_percentage{
+  width: 20%;              /* 設置名稱寬度為 20% */
+  text-align: center;      /* 名稱文字居中對齊 */
+}
+
+/* Slider 名稱樣式 */
+.slider-name {
+  width: 20%;              /* 設置名稱寬度為 20% */
+  text-align: center;      /* 名稱文字居中對齊 */
+}
+
+/* Slider 主體樣式 */
+.slider {
+  width: 45%;              /* 設置滑桿寬度為 60% */
+  height: 3px;            /* 設置滑桿高度為 10 像素 */
+  background: #ddd;        /* 設置滑桿背景色為 #ddd */
+  outline: none;           /* 移除滑桿的外部輪廓 */
+  opacity: 0.7;            /* 設置滑桿的透明度為 0.7 */
+  -webkit-transition: .2s; /* 設置滑桿的過渡效果時間為 0.2 秒 (Webkit 瀏覽器) */
+  transition: opacity .2s; /* 設置滑桿的過渡效果時間為 0.2 秒 (其他瀏覽器) */
+  margin-right: 10px;      /* 設置滑桿右側外邊距為 10 像素 */
+}
+
+/* Hover 狀態下的 Slider 主體樣式 */
+.slider:hover {
+  opacity: 1;              /* 當滑桿處於 hover 狀態時，將透明度設置為 1 */
+}
+
+/* Webkit 瀏覽器中的 Slider 手柄樣式 */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* 移除默認外觀 (Webkit 瀏覽器) */
+  appearance: none;         /* 移除默認外觀 (其他瀏覽器) */
+  width: 25px;              /* 設置手柄寬度為 25 像素 */
+  height: 25px;             /* 設置手柄高度為 25 像素 */
+  background: #FF0000;      /* 設置手柄背景色為紅色 */
+  cursor: pointer;          /* 設置手柄鼠標指針為指針狀 */
+  border-radius: 50%;       /* 設置手柄為圓形 */
+}
+
+/* Mozilla 瀏覽器中的 Slider 手柄樣式 */
+.slider::-moz-range-thumb {
+  width: 25px;              /* 設置手柄寬度為 25 像素 */
+  height: 25px;             /* 設置手柄高度為 25 像素 */
+  background: #FF0000;      /* 設置手柄背景色為紅色 */
+  cursor: pointer;          /* 設置手柄鼠標指針為指針狀 */
+  border-radius: 50%;       /* 設置手柄為圓形 */
+}
+
+/* Slider 值顯示樣式 */
+.slider-value {
+  width: 20%;               /* 設置顯示值的寬度為 20% */
+  text-align: center;       /* 設置顯示值的文字居中對齊 */
+}
+
+/* 額外的 Slider 值顯示樣式 */
+.slider-value-display {
+  margin-top: 10px;         /* 設置顯示值區域的頂部外邊距為 10 像素 */
+}

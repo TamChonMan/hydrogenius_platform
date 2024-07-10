@@ -1,0 +1,18 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: transparent; /* 確保內容區域背景透明，顯示漸層背景 */ 
+  }
+  
+.logo {
+    width: 100px; /* 設置圖片寬度 */
+    height: auto; /* 根據寬度自動調整高度，保持圖片比例 */
+    margin-right: 10px;
+}
+  
+.title {
+    color: white;
+    font-size: 24px;
+}
+  
