@@ -1,8 +1,7 @@
 .parameter {
     width: 100%;
-  }
-  
-  .slider-container {
-    width: 100%;
+    position: relative;
+    /* flex-grow: 1; 占据剩余空间 */
+    overflow: auto; /* 允许内容溢出时滚动 */
   }
   

@@ -1,8 +1,11 @@
 .result {
     margin-bottom: 20px;
+    height: 30;
+    justify-content: top;
   }
   
   .slider-value-display {
     margin-top: 10px;
+    justify-content: top;
   }
   

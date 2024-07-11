@@ -1,65 +1,131 @@
-/* Slider 容器樣式 */
+/* Slider 容器样式 */
 .slider-container {
-  display: flex;           /* 使用 flex 布局 */
-  align-items: center;     /* 垂直居中對齊 */
-  width: 100%;             /* 設置容器寬度為 100% */
-  margin-top: 20px;        /* 顶部外边距为 20 像素 */
-}
-.parameter_percentage{
-  width: 20%;              /* 設置名稱寬度為 20% */
-  text-align: center;      /* 名稱文字居中對齊 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, border-radius 0.3s ease, padding-bottom 0.3s ease;
+  padding-bottom: 5px;
 }
 
-/* Slider 名稱樣式 */
+.slider-container.dropdown-active {
+  background-color: white;
+  border-radius: 15px;
+  padding-bottom: 60px; /* 增加底部内边距以容纳下拉内容 */
+}
+
+/* Slider 内容样式 */
+.slider-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 2; /* 确保它始终在下拉内容之上 */
+}
+
+/* 子滑块容器包裹样式 */
+.dropdown-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* 子滑块容器样式 */
+.dropdown-container {
+  position: absolute;
+  top: 100%; /* 将下拉内容放置在slider-content的正下方 */
+  left: 0;
+  width: 100%;
+  background-color: inherit;
+  padding-top: 10px;
+  margin-top: 0; /* 移除顶部外边距 */
+  border-radius: inherit;
+  z-index: 1;
+}
+
+/* 子滑块内容样式 */
+.sub-slider-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between; /* 平均分布 */
+}
+
+/* 隐藏样式 */
+.hidden {
+  display: none;
+}
+
+/* 下拉按钮样式 */
+.dropdown-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  width: 10%;
+}
+
+/* Slider 名称样式 */
 .slider-name {
-  width: 20%;              /* 設置名稱寬度為 20% */
-  text-align: center;      /* 名稱文字居中對齊 */
+  width: 20%; /* 设置名称宽度为 20% */
+  text-align: center; /* 名称文字居中对齐 */
 }
 
-/* Slider 主體樣式 */
+/* Slider 主体样式 */
 .slider {
-  width: 45%;              /* 設置滑桿寬度為 60% */
-  height: 3px;            /* 設置滑桿高度為 10 像素 */
-  background: #ddd;        /* 設置滑桿背景色為 #ddd */
-  outline: none;           /* 移除滑桿的外部輪廓 */
-  opacity: 0.7;            /* 設置滑桿的透明度為 0.7 */
-  -webkit-transition: .2s; /* 設置滑桿的過渡效果時間為 0.2 秒 (Webkit 瀏覽器) */
-  transition: opacity .2s; /* 設置滑桿的過渡效果時間為 0.2 秒 (其他瀏覽器) */
-  margin-right: 10px;      /* 設置滑桿右側外邊距為 10 像素 */
+  width: 60%; /* 设置滑杆宽度为 60% */
+  height: 10px; /* 设置滑杆高度为 10 像素 */
+  background: #ddd; /* 设置滑杆背景色为 #ddd */
+  outline: none; /* 移除滑杆的外部轮廓 */
+  opacity: 0.7; /* 设置滑杆的透明度为 0.7 */
+  -webkit-transition: .2s; /* 设置滑杆的过渡效果时间为 0.2 秒 (Webkit 浏览器) */
+  transition: opacity .2s; /* 设置滑杆的过渡效果时间为 0.2 秒 (其他浏览器) */
+  margin-right: 10px; /* 设置滑杆右侧外边距为 10 像素 */
 }
 
-/* Hover 狀態下的 Slider 主體樣式 */
+/* Hover 状态下的 Slider 主体样式 */
 .slider:hover {
-  opacity: 1;              /* 當滑桿處於 hover 狀態時，將透明度設置為 1 */
+  opacity: 1; /* 当滑杆处于 hover 状态时，将透明度设置为 1 */
 }
 
-/* Webkit 瀏覽器中的 Slider 手柄樣式 */
+/* Webkit 浏览器中的 Slider 手柄样式 */
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* 移除默認外觀 (Webkit 瀏覽器) */
-  appearance: none;         /* 移除默認外觀 (其他瀏覽器) */
-  width: 25px;              /* 設置手柄寬度為 25 像素 */
-  height: 25px;             /* 設置手柄高度為 25 像素 */
-  background: #FF0000;      /* 設置手柄背景色為紅色 */
-  cursor: pointer;          /* 設置手柄鼠標指針為指針狀 */
-  border-radius: 50%;       /* 設置手柄為圓形 */
+  -webkit-appearance: none; /* 移除默认外观 (Webkit 浏览器) */
+  appearance: none; /* 移除默认外观 (其他浏览器) */
+  width: 25px; /* 设置手柄宽度为 25 像素 */
+  height: 25px; /* 设置手柄高度为 25 像素 */
+  background: #ff0000; /* 设置手柄背景色为红色 */
+  cursor: pointer; /* 设置手柄鼠标指针为指针状 */
+  border-radius: 50%; /* 设置手柄为圆形 */
 }
 
-/* Mozilla 瀏覽器中的 Slider 手柄樣式 */
+/* Mozilla 浏览器中的 Slider 手柄样式 */
 .slider::-moz-range-thumb {
-  width: 25px;              /* 設置手柄寬度為 25 像素 */
-  height: 25px;             /* 設置手柄高度為 25 像素 */
-  background: #FF0000;      /* 設置手柄背景色為紅色 */
-  cursor: pointer;          /* 設置手柄鼠標指針為指針狀 */
-  border-radius: 50%;       /* 設置手柄為圓形 */
+  width: 25px; /* 设置手柄宽度为 25 像素 */
+  height: 25px; /* 设置手柄高度为 25 像素 */
+  background: #ff0000; /* 设置手柄背景色为红色 */
+  cursor: pointer; /* 设置手柄鼠标指针为指针状 */
+  border-radius: 50%; /* 设置手柄为圆形 */
 }
 
-/* Slider 值顯示樣式 */
+/* Slider 值显示样式 */
 .slider-value {
-  width: 20%;               /* 設置顯示值的寬度為 20% */
-  text-align: center;       /* 設置顯示值的文字居中對齊 */
+  width: 10%; /* 设置显示值的宽度为 10% */
+  text-align: center; /* 设置显示值的文字居中对齐 */
 }
 
-/* 額外的 Slider 值顯示樣式 */
+/* 额外的 Slider 值显示样式 */
 .slider-value-display {
-  margin-top: 10px;         /* 設置顯示值區域的頂部外邊距為 10 像素 */
+  margin-top: 10px; /* 设置显示值区域的顶部外边距为 10 像素 */
+}
+
+/* 白色文字样式 */
+.white-text {
+  color: white; /* 设置文字颜色为白色 */
+}
+
+/* 黑色文字样式 */
+.black-text {
+  color: black; /* 设置文字颜色为黑色 */
 }

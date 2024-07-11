@@ -1,13 +1,25 @@
+/* RightContent 容器样式 */
 .right-content {
-    flex: 1;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景以顯示漸層 */
-    border: 0px solid white; /* 白色邊框 */
-    border-radius: 15px; /* 圓角 */
-    margin: 10px; /* 內部區塊之間的間距 */
-    color: white;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box; /* 确保内边距包含在总宽度和高度内 */
+}
+
+/* Result 容器样式 */
+.result-container {
+  flex: 1;
+  padding: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: transparent;
+}
+
+/* Parameter 容器样式 */
+.parameter-container {
+  flex: 1;
+  padding: 20px;
+  width: 100%;
+  background-color: transparent;
+}
