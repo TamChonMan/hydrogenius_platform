@@ -7,13 +7,14 @@
   width: 100%;
   margin-top: 20px;
   transition: background-color 0.3s ease, border-radius 0.3s ease, padding-bottom 0.3s ease;
-  padding-bottom: 5px;
+  padding-bottom: 2px;
 }
 
 .slider-container.dropdown-active {
+  padding-top: 5px;
   background-color: white;
   border-radius: 15px;
-  padding-bottom: 60px; /* 增加底部内边距以容纳下拉内容 */
+  padding-bottom: 120px; /* 增加底部内边距以容纳下拉内容 */
 }
 
 /* Slider 内容样式 */
@@ -50,6 +51,7 @@
   align-items: center;
   width: 100%;
   justify-content: space-between; /* 平均分布 */
+  padding-bottom: 10px;
 }
 
 /* 隐藏样式 */

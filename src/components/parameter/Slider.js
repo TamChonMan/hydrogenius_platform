@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './Slider.css';
+import SubSlider from './SubSlider';
 
 const Slider = ({ name, min, max, step, defaultValue, onChange }) => {
   const initialSliderValue = (max + min) / 2;
-  // 主slider
   const [sliderValue, setSliderValue] = useState(initialSliderValue);
   const [calculatedValue, setCalculatedValue] = useState(defaultValue);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  
+  const [cableValue, setcableValue] = useState(80); // Initial value for cable
+  const [Pipeline, setpipelineValue] = useState(80); // Initial value for pipeline
 
   useEffect(() => {
     const percentage = ((sliderValue - min) / (max - min) * 200 - 100).toFixed(2);
@@ -15,7 +18,7 @@ const Slider = ({ name, min, max, step, defaultValue, onChange }) => {
     onChange && onChange(newCalculatedValue);
   }, [sliderValue, min, max, defaultValue, onChange]);
 
-  const handleSliderChange = (event) => {  
+  const handleSliderChange = (event) => {
     const value = parseFloat(event.target.value);
     setSliderValue(value);
 
@@ -25,20 +28,21 @@ const Slider = ({ name, min, max, step, defaultValue, onChange }) => {
     onChange && onChange(newCalculatedValue);
   };
 
-  const percentage = ((sliderValue - min) / (max - min) * 200 - 100).toFixed(2);
+  const handleCableChange = (value) => {
+    setcableValue(value);
+    // If you want to update the main slider based on the sub slider, add the logic here
+  };
+  const handlepipelineChange = (value) => {
+    setpipelineValue(value);
+    // If you want to update the main slider based on the sub slider, add the logic here
+  };
+
 
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible);
   };
 
-  // 子slider change
-  //cable
-  const cable_defaultValue = 800;
-  const initialcable_defaultValue = 50;
-  const [cablecost, setScablecost] = useState(initialcable_defaultValue);
-  const [calculatedcablecost, setcalculatedcablecost] = useState(cable_defaultValue);
-
-
+  const percentage = ((sliderValue - min) / (max - min) * 200 - 100).toFixed(2);
 
   return (
     <div className={`slider-container ${isDropdownVisible ? 'dropdown-active' : ''}`}>
@@ -62,20 +66,22 @@ const Slider = ({ name, min, max, step, defaultValue, onChange }) => {
       {isDropdownVisible && (
         <div className="dropdown-wrapper">
           <div className={`dropdown-container ${isDropdownVisible ? 'black-text' : 'white-text'}`}>
-            <div className="sub-slider-content">
-              <div className="slider-name">{name} Sub</div>
-              <div className="parameter_percentage">{percentage}%</div>
-              <input
-                type="range"
-                min={min}
-                max={max}
-                step={step}
-                value={sliderValue}
-                className="slider"
-                onChange={handleSliderChange}
-              />
-              <div className="slider-value">{calculatedValue}</div>
-            </div>
+            <SubSlider
+              name="Cable"
+              min={0}
+              max={100}
+              step={1}
+              defaultValue={80}
+              onChange={handleCableChange}
+            />
+            <SubSlider
+              name='Pipeline'
+              min={0}
+              max={100}
+              step={1}
+              defaultValue={40}
+              onChange={handlepipelineChange}
+            />
           </div>
         </div>
       )}
