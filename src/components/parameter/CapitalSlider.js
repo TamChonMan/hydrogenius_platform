@@ -1,49 +1,48 @@
 import React, { useState, useEffect } from 'react';
-import './Slider.css';
-import SubSlider from './SubSlider';
+import './CapitalSlider.css';
+import SubSlider from './subSlider/SubSlider';
+import defaultValues from './defaultValues.js';
 
-const Slider = ({ name, min, max, step, defaultValue, onChange }) => {
+const CapitalSlider = ({ name, min, max, step, onChange }) => {
   const initialSliderValue = (max + min) / 2;
+
+  // Import default values
+  const turbinedefaultValue = defaultValues.CAPEX.nonInstallation.turbine;
+  const turbinePlatformsDefaultValue = defaultValues.CAPEX.nonInstallation.turbinePlatforms;
+
   const [sliderValue, setSliderValue] = useState(initialSliderValue);
-  const [calculatedValue, setCalculatedValue] = useState(defaultValue);
+  const [TurbineValue, setTurbineValue] = useState(turbinedefaultValue);
+  const [TurbinePlatformsValue, setTurbinePlatformsValue] = useState(turbinePlatformsDefaultValue);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   
-  const [cableValue, setcableValue] = useState(80); // Initial value for cable
-  const [Pipeline, setpipelineValue] = useState(80); // Initial value for pipeline
+  const calculatedValue = (parseFloat(TurbineValue) + parseFloat(TurbinePlatformsValue)).toFixed(2);
 
   useEffect(() => {
-    const percentage = ((sliderValue - min) / (max - min) * 200 - 100).toFixed(2);
-    const newCalculatedValue = (defaultValue * (1 + percentage / 100)).toFixed(2);
-    setCalculatedValue(newCalculatedValue);
-    onChange && onChange(newCalculatedValue);
-  }, [sliderValue, min, max, defaultValue, onChange]);
+    onChange && onChange(parseFloat(calculatedValue));
+  }, [calculatedValue, onChange]);
 
   const handleSliderChange = (event) => {
     const value = parseFloat(event.target.value);
     setSliderValue(value);
 
     const percentage = ((value - min) / (max - min) * 200 - 100).toFixed(2);
-    const newCalculatedValue = (defaultValue * (1 + percentage / 100)).toFixed(2);
-    setCalculatedValue(newCalculatedValue);
-    onChange && onChange(newCalculatedValue);
+    setTurbineValue((turbinedefaultValue * (1 + percentage / 100)).toFixed(2));
+    setTurbinePlatformsValue((turbinePlatformsDefaultValue * (1 + percentage / 100)).toFixed(2));
   };
 
-  const handleCableChange = (value) => {
-    setcableValue(value);
-    // If you want to update the main slider based on the sub slider, add the logic here
-  };
-  const handlepipelineChange = (value) => {
-    setpipelineValue(value);
-    // If you want to update the main slider based on the sub slider, add the logic here
+  const handleTurbineChange = (value) => {
+    setTurbineValue(parseFloat(value));
   };
 
+  const handleTurbinePlatformsChange = (value) => {
+    setTurbinePlatformsValue(parseFloat(value));
+  };
 
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible);
   };
 
   const percentage = ((sliderValue - min) / (max - min) * 200 - 100).toFixed(2);
-  const capital = cableValue +Pipeline
 
   return (
     <div className={`slider-container ${isDropdownVisible ? 'dropdown-active' : ''}`}>
@@ -68,22 +67,24 @@ const Slider = ({ name, min, max, step, defaultValue, onChange }) => {
         <div className="dropdown-wrapper">
           <div className={`dropdown-container ${isDropdownVisible ? 'black-text' : 'white-text'}`}>
             <SubSlider
-              name="Cable"
+              name="Turbine"
               min={0}
               max={100}
               step={1}
-              defaultValue={80}
-              onChange={handleCableChange}
-              unit={'USD'}
+              defaultValue={turbinedefaultValue}
+              value={TurbineValue}
+              onChange={handleTurbineChange}
+              unit="USD"
             />
             <SubSlider
-              name='Pipeline'
+              name="Turbine Platforms"
               min={0}
               max={100}
               step={1}
-              defaultValue={40}
-              onChange={handlepipelineChange}
-              unit={'USD'}
+              defaultValue={turbinePlatformsDefaultValue}
+              value={TurbinePlatformsValue}
+              onChange={handleTurbinePlatformsChange}
+              unit="USD"
             />
           </div>
         </div>
@@ -92,4 +93,4 @@ const Slider = ({ name, min, max, step, defaultValue, onChange }) => {
   );
 };
 
-export default Slider;
+export default CapitalSlider;

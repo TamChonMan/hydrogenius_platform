@@ -9,13 +9,14 @@
 
 /* Slider 名称样式 */
 .sub-slider-name {
-  width: 15%; /* 设置名称宽度为 20% */
+  width: 20%; /* 设置名称宽度为 20% */
   text-align: right; /* 名称文字居中对齐 */
+  font-size: 0.95rem; /* 设置字体大小 */
 }
 
 .sub-parameter-percentage {
   width: 14%; /* 设置名称宽度为 20% */
-  text-align: right; /* 名称文字居中对齐 */
+  text-align: center; /* 名称文字居中对齐 */
 }
 
 /* Slider 主体样式 */
@@ -33,7 +34,12 @@
 /* Slider 值显示样式 */
 .sub-slider-input {
   width: 10%; /* 设置显示值的宽度为 10% */
-  text-align: left; /* 设置显示值的文字居中对齐 */
+  text-align: center; /* 设置显示值的文字居中对齐 */
+  border: 1px solid #ccc; /* 添加边框 */
+  border-radius: 5px; /* 设置圆角 */
+  padding: 5px; /* 添加内边距 */
+  outline: none; /* 移除外部轮廓 */
+  font-size: 0.9rem; /* 设置字体大小 */
 }
 
 .sub-slider-unit {

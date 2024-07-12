@@ -1,11 +1,11 @@
 import React from 'react';
 import './Parameter.css';
-import Slider from './Slider';
+import CapitalSlider from './CapitalSlider';
 
 const Parameter = ({ onCapitalChange, onOmChange, capitalDefaultValue, omDefaultValue }) => {
   return (
     <div className="parameter">
-      <Slider
+      <CapitalSlider
         name="Capital"
         min={0}
         max={100}
