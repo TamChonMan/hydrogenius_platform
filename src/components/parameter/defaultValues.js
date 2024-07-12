@@ -1,55 +1,61 @@
 const defaultValues = {
-    // Initial Investment Costs for Offshore Wind Farm Development (CAPEX)
-    CAPEX: {
-      nonInstallation: {
-        turbine: 1605, // (k$)/MW
-        turbinePlatforms: 1257, // (k$)/MW
-        mooringSystem: 209, // (k$)/MW
-        anchor: 100, // (k$)/MW
-        balanceSystem: 770, // (k$)/MW
-        electrolyzer: {
-          '8MW': 1056, // (k$)/MW, 8-MW system
-          '100MW': 882 // (k$)/MW, 100-MW system
-        },
-        hydrogenPipe: 842.5, // (k$)/km
-        offshoreElectrolyzerPlatform: 112, // (k$)/MW
-        offshoreSubstation: 175, // (k$)/MW
-        '66KVcable': 587.6359, // (k$)/km
-        '161KVcable': 648.7772, // (k$)/km
-        installationInsurance: 143, // (k$)/MW
-        constructionDockLease: 62, // (k$)/MW
-        design: 295.5 // (k$)/MW
-      },
-      installation: {
-        plantInstallation: 418, // (k$)/MW
-        hydrogenPipeInstallation: 3.6, // (k$)/km
-        offshoreElectrolyzerPlatformInstallation: 84, // (k$)/MW
-        offshoreSubstationInstallation: 84, // (k$)/MW
-        '66KVcableInstallation': 1012.602, // (k$)/km
-        '161KVcableInstallation': 1012.534 // (k$)/km
-      }
+  // Initial Investment Costs for Offshore Wind Farm Development (CAPEX)
+  CAPEX: {
+    nonInstallation: {
+      Turbine: { value: 1605, unit: 'k$/MW' },
+      TurbinePlatforms: { value: 1257, unit: 'k$/MW' },
+      MooringSystem: { value: 209, unit: 'k$/MW' },
+      Anchor: { value: 100, unit: 'k$/MW' },
+      BalanceSystem: { value: 770, unit: 'k$/MW' },
+      Electrolyzer: { value: 1056, unit: 'k$/MW' },
+      HydrogenPipe: { value: 842.5, unit: 'k$/km' },
+      ElectrolyzerPlatform: { value: 112, unit: 'k$/MW' },
+      Substation: { value: 175, unit: 'k$/MW' },
+      Cable: { value: 587.6359, unit: 'k$/km' },
+      InstallationInsurance: { value: 143, unit: 'k$/MW' },
+      ConstructionDockLease: { value: 62, unit: 'k$/MW' },
+      Design: { value: 295.5, unit: 'k$/MW' }
     },
-  
-    // Operation and Maintenance Cost of Offshore Wind Farm (OPEX)
-    OPEX: {
-      plant: '3% of CAPEX', // /MW
-      electrolyzer: '2% of CAPEX', // /MW
-      electrolyzerStack: '60% of CAPEX', // /stack
-      hydrogenPipe: 3.6, // (k$)/km
-      '66KVcable': 4.8, // (k$)/km
-      offshoreElectrolyzerPlatform: '1% of CAPEX', // /MW
-      offshoreSubstation: '1% of CAPEX' // /MW
-    },
-  
-    // Decommissioning Cost of Offshore Wind Farm
-    decommissioning: {
-      plant: '70% of install cost', // /MW
-      hydrogenPipe: 0, // /km (value not provided)
-      '66KVcable': '10% of install cost', // /km
-      offshoreElectrolyzerPlatform: 91, // (k$)/MW
-      offshoreSubstation: 0 // (k$)/MW (value not provided)
+    installation: {
+      plant: { value: 418, unit: 'k$/MW' },
+      h2Pipe: { value: 3.6, unit: 'k$/km' },
+      ElecPlatform: { value: 84, unit: 'k$/MW' },
+      Substation: { value: 84, unit: 'k$/MW' },
+      cable: { value: 1012.602, unit: 'k$/km' }
     }
-  };
+  },
+
+  // Operation and Maintenance Cost of Offshore Wind Farm (OPEX)
+  OPEX: {
+    plant: { value: 0.03 , unit: '/MW' },
+    electrolyzer: { value: 0.02 , unit: '/MW' },
+    electrolyzerStack: { value: 0.6, unit: '/stack' },
+    hydrogenPipe: { value: 3.6, unit: 'k$/km' },
+    cable: { value: 4.8, unit: 'k$/km' },
+    ElectrolyzerPlatform: { value: 0.01, unit: '/MW' },
+    Substation: { value: 0.01, unit: '/MW' }
+  },
+
+  // Decommissioning Cost of Offshore Wind Farm
+  decommissioning: {
+    plant: { value: 0.7, unit: '/MW' },
+    hydrogenPipe: { value: 0, unit: '/km' }, // (value not provided)
+    cable: { value: 0.1, unit: '/km' },
+    ElectrolyzerPlatform: { value: 91, unit: 'k$/MW' },
+    Substation: { value: 0, unit: 'k$/MW' } // (value not provided)
+  },
   
-  export default defaultValues;
-  
+  //MW
+  Capacity: {
+    NumberOfTurbine:{value: 31, unit:'/'},
+    TurbineCapacity:{value:9.5,unit:'MW'}
+  },
+
+  distant:{
+    HydrogenPipe:{value: 100, unit:'km'},
+    Cable:{value: 50, unit:'km'}
+  }
+
+};
+
+export default defaultValues;

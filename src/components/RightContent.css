@@ -13,13 +13,16 @@
   padding: 20px;
   width: 100%;
   margin-bottom: 20px;
+  height:50%;
   background-color: transparent;
 }
 
 /* Parameter 容器样式 */
 .parameter-container {
   flex: 1;
-  padding: 20px;
+  padding: 0px;
   width: 100%;
   background-color: transparent;
+  height:50%;
+  overflow: auto; /*允许内容溢出时滚动*/
 }

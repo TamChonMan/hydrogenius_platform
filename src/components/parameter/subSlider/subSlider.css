@@ -3,8 +3,9 @@
   display: flex;
   align-items: center;
   width: 100%;
-  justify-content: space-around; /* 平均分布 */
+  justify-content: space-between; /* 平均分布 */
   padding-bottom: 10px;
+  flex-wrap: wrap; /* 允许内容换行 */
 }
 
 /* Slider 名称样式 */
@@ -12,16 +13,19 @@
   width: 20%; /* 设置名称宽度为 20% */
   text-align: right; /* 名称文字居中对齐 */
   font-size: 0.95rem; /* 设置字体大小 */
+  white-space: normal; /* 防止名称换行 */
+  flex-wrap: wrap;
 }
 
 .sub-parameter-percentage {
-  width: 14%; /* 设置名称宽度为 20% */
+  width: 14%; /* 设置名称宽度为 14% */
   text-align: center; /* 名称文字居中对齐 */
+  font-size: 0.9rem; /* 设置字体大小 */
 }
 
 /* Slider 主体样式 */
 .sub-slider {
-  width: 45%; /* 设置滑杆宽度 */
+  width: 35%; /* 设置滑杆宽度 */
   height: 3px; /* 设置滑杆高度像素 */
   background: #ddd; /* 设置滑杆背景色为 #ddd */
   outline: none; /* 移除滑杆的外部轮廓 */
@@ -45,4 +49,6 @@
 .sub-slider-unit {
   width: 10%;
   text-align: center; /* 设置显示值的文字居中对齐 */
+  font-size: 0.9rem; /* 设置字体大小 */
+  white-space: nowrap; /* 防止单位换行 */
 }

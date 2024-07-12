@@ -4,17 +4,27 @@ import Result from './Result/Result';
 import Parameter from './Parameter/Parameter';
 
 const RightContent = () => {
-  const [capitalValue, setCapitalValue] = useState(890); // 初始 Capital 值
+  const [capitalValue, setCapitalValue] = useState(0); // 初始 Capital 值
   const handleCapitalChange = (value) => {
     setCapitalValue(parseFloat(value));
   };
   
-  // const [omValue, setOmValue] = useState(890); // 初始 O&M 值
-  // const handleOmChange = (value) => {
-  //   setOmValue(parseFloat(value));
-  // };
+  const [InstallationlValue, setInstallationValue] = useState(0); // 初始 Installation 值
+  const handleInstallationChange = (value) => {
+    setInstallationValue(parseFloat(value));
+  };
 
-  const resultValue = ((capitalValue)* 2).toFixed(2); // Model build here
+  const [OMValue, setOMValue] = useState(0); // 初始 OM 值
+  const handleOMChange = (value) => {
+    setOMValue(parseFloat(value));
+  };
+
+  const [decompValue, setdecompValue] = useState(0); // 初始 OM 值
+  const handledecompChange = (value) => {
+    setdecompValue(parseFloat(value));
+  };
+
+  const resultValue = (capitalValue+InstallationlValue+OMValue+decompValue).toFixed(2); // Model build here
 
   return (
     <div className="right-content">
@@ -24,9 +34,9 @@ const RightContent = () => {
       <div className="parameter-container">
         <Parameter 
           onCapitalChange={handleCapitalChange} 
-          // onOmChange={handleOmChange} 
-          capitalDefaultValue={890} 
-          // omDefaultValue={80} 
+          onInstallationChange={handleInstallationChange} 
+          onOMChange={handleOMChange}
+          ondecompChange={handledecompChange}
         />
       </div>
     </div>

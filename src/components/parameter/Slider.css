@@ -1,22 +1,42 @@
 /* Slider 容器样式 */
-.slider-container {
+.slider-container-capital{
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 10px;
   transition: background-color 0.3s ease, border-radius 0.3s ease, padding-bottom 0.3s ease;
-  padding-bottom: 2px;
+  padding-bottom: 10px;
 }
 
-.slider-container.dropdown-active {
-  padding-top: 5px;
+.slider-container-installation{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, border-radius 0.3s ease, padding-bottom 0.3s ease;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+.slider-container-capital.dropdown-active{
+  padding-top: 2px;
   background-color: white;
   border-radius: 15px;
-  padding-bottom: 120px; /* 增加底部内边距以容纳下拉内容 */
+  padding-bottom: 230px; /* 增加底部内边距以容纳下拉内容 */
+  overflow: auto; /* 允许内容溢出时滚动 */
 }
 
+.slider-container-installation.dropdown-active{
+  padding-top: 2px;
+  background-color: white;
+  border-radius: 15px;
+  padding-bottom: 180px; /* 增加底部内边距以容纳下拉内容 */
+  overflow: auto; /* 允许内容溢出时滚动 */
+} 
 .parameter_percentag{
   width: 10%;
   text-align: center; /* 名称文字居中对齐 */
@@ -63,18 +83,21 @@
   border: none;
   font-size: 16px;
   cursor: pointer;
-  width: 10%;
+  width: 5%;
 }
 
 /* Slider 名称样式 */
 .slider-name {
-  width: 20%; /* 设置名称宽度为 20% */
-  text-align: center; /* 名称文字居中对齐 */
+  width: 10%; /* 设置名称宽度为 20% */
+  text-align: left; /* 名称文字居中对齐 */
 }
-
+.parameter_percentage{
+  width: 10%; /* 设置名称宽度为 20% */
+  text-align: right; /* 名称文字居中对齐 */
+}
 /* Slider 主体样式 */
 .slider {
-  width: 60%; /* 设置滑杆宽度为 60% */
+  width: 55%; /* 设置滑杆宽度为 60% */
   height: 5px; /* 设置滑杆高度为 10 像素 */
   background: #ddd; /* 设置滑杆背景色为 #ddd */
   outline: none; /* 移除滑杆的外部轮廓 */

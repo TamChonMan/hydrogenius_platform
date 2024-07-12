@@ -3,14 +3,14 @@ import './Slider.css';
 import SubSlider from './subSlider/SubSlider';
 import defaultValues from './defaultValues.js';
 
-const CapitalSlider = ({ name, min, max, step, onChange }) => {
-  const nonInstallationValues = defaultValues.CAPEX.nonInstallation;
+const OMSlider = ({ name, min, max, step, onChange }) => {
+  const OMValues = defaultValues.OPEX;
   const capacity = defaultValues.Capacity.NumberOfTurbine.value * defaultValues.Capacity.TurbineCapacity.value;
   const hydrogenPipeDistance = defaultValues.distant.HydrogenPipe.value;
   const cableDistance = defaultValues.distant.Cable.value;
 
-  const [values, setValues] = useState(Object.keys(nonInstallationValues).reduce((acc, key) => {
-    acc[key] = nonInstallationValues[key].value;
+  const [values, setValues] = useState(Object.keys(OMValues).reduce((acc, key) => {
+    acc[key] = OMValues[key].value;
     return acc;
   }, {}));
 
@@ -91,17 +91,17 @@ const CapitalSlider = ({ name, min, max, step, onChange }) => {
       {isDropdownVisible && (
         <div className="dropdown-wrapper">
           <div className={`dropdown-container ${isDropdownVisible ? 'black-text' : 'white-text'}`}>
-            {Object.keys(nonInstallationValues).map(key => (
+            {Object.keys(OMValues).map(key => (
               <SubSlider
                 key={key}
                 name={key}
                 min={0}
                 max={100}
                 step={1}
-                defaultValue={nonInstallationValues[key].value}
+                defaultValue={OMValues[key].value}
                 value={values[key]}
                 onChange={(value) => handleValueChange(key, value)}
-                unit={nonInstallationValues[key].unit}
+                unit={OMValues[key].unit}
               />
             ))}
           </div>
@@ -111,4 +111,4 @@ const CapitalSlider = ({ name, min, max, step, onChange }) => {
   );
 };
 
-export default CapitalSlider;
+export default OMSlider;

@@ -14,6 +14,7 @@ body, html, #root {
 .content {
   display: flex;
   flex: 1;
+  height: 100%;
 }
 
 .left-content, .right-content {

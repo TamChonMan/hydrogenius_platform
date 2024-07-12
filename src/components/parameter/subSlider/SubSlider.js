@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './subSlider.css';
 
 const SubSlider = ({ name, min, max, step, defaultValue, value, onChange, unit }) => {
-  const initialSliderValue = (max + min) / 2;
-  const [sliderValue, setSliderValue] = useState(initialSliderValue);
-  const [inputValue, setInputValue] = useState(defaultValue.toString());
+  const [sliderValue, setSliderValue] = useState(value);
+  const [inputValue, setInputValue] = useState(value.toString());
 
   useEffect(() => {
     setInputValue(value.toString());
@@ -14,13 +13,12 @@ const SubSlider = ({ name, min, max, step, defaultValue, value, onChange, unit }
   }, [value, defaultValue, min, max]);
 
   const handleSliderChange = (event) => {
-    const value = parseFloat(event.target.value);
-    setSliderValue(value);
-
-    const percentage = ((value - min) / (max - min) * 200 - 100).toFixed(2);
-    const newCalculatedValue = (defaultValue * (1 + percentage / 100)).toFixed(2);
+    const newValue = parseFloat(event.target.value);
+    setSliderValue(newValue);
+    const percentage = ((newValue - min) / (max - min) * 200 - 100).toFixed(1);
+    const newCalculatedValue = (defaultValue * (1 + percentage / 100)).toFixed(1);
     setInputValue(newCalculatedValue.toString());
-    onChange && onChange(newCalculatedValue);
+    onChange(parseFloat(newCalculatedValue));
   };
 
   const handleInputChange = (event) => {
@@ -34,9 +32,7 @@ const SubSlider = ({ name, min, max, step, defaultValue, value, onChange, unit }
       setInputValue(defaultValue.toString());
       return;
     }
-    const percentageValue = ((numericValue / defaultValue) - 1) * 100;
-    const sliderPosition = min + ((percentageValue + 100) / 200) * (max - min);
-    setSliderValue(sliderPosition);
+    onChange(numericValue);
   };
 
   const handleKeyDown = (event) => {
@@ -46,12 +42,12 @@ const SubSlider = ({ name, min, max, step, defaultValue, value, onChange, unit }
   };
 
   const handleSliderDoubleClick = () => {
-    setSliderValue(initialSliderValue);
+    setSliderValue(defaultValue);
     setInputValue(defaultValue.toString());
-    onChange && onChange(defaultValue.toString());
+    onChange(defaultValue);
   };
 
-  const percentage = ((sliderValue - min) / (max - min) * 200 - 100).toFixed(2);
+  const percentage = ((sliderValue - min) / (max - min) * 200 - 100).toFixed(1);
 
   return (
     <div className="sub-slider-content">
