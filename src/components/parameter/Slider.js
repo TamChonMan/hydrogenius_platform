@@ -43,6 +43,7 @@ const Slider = ({ name, min, max, step, defaultValue, onChange }) => {
   };
 
   const percentage = ((sliderValue - min) / (max - min) * 200 - 100).toFixed(2);
+  const capital = cableValue +Pipeline
 
   return (
     <div className={`slider-container ${isDropdownVisible ? 'dropdown-active' : ''}`}>
@@ -73,6 +74,7 @@ const Slider = ({ name, min, max, step, defaultValue, onChange }) => {
               step={1}
               defaultValue={80}
               onChange={handleCableChange}
+              unit={'USD'}
             />
             <SubSlider
               name='Pipeline'
@@ -81,6 +83,7 @@ const Slider = ({ name, min, max, step, defaultValue, onChange }) => {
               step={1}
               defaultValue={40}
               onChange={handlepipelineChange}
+              unit={'USD'}
             />
           </div>
         </div>

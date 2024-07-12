@@ -13,15 +13,15 @@ const Parameter = ({ onCapitalChange, onOmChange, capitalDefaultValue, omDefault
         defaultValue={capitalDefaultValue}
         onChange={onCapitalChange}
       />
-      
-      <Slider
+
+      {/* <Slider
         name="O&M"
         min={0}
         max={100}
         step={1}
         defaultValue={omDefaultValue}
         onChange={onOmChange}
-      />
+      /> */}
     </div>
   );
 };

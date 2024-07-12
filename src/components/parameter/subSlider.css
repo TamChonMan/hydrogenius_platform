@@ -1,0 +1,42 @@
+/* 子滑块内容样式 */
+.sub-slider-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around; /* 平均分布 */
+  padding-bottom: 10px;
+}
+
+/* Slider 名称样式 */
+.sub-slider-name {
+  width: 15%; /* 设置名称宽度为 20% */
+  text-align: right; /* 名称文字居中对齐 */
+}
+
+.sub-parameter-percentage {
+  width: 14%; /* 设置名称宽度为 20% */
+  text-align: right; /* 名称文字居中对齐 */
+}
+
+/* Slider 主体样式 */
+.sub-slider {
+  width: 45%; /* 设置滑杆宽度 */
+  height: 3px; /* 设置滑杆高度像素 */
+  background: #ddd; /* 设置滑杆背景色为 #ddd */
+  outline: none; /* 移除滑杆的外部轮廓 */
+  opacity: 0.7; /* 设置滑杆的透明度为 0.7 */
+  -webkit-transition: .2s; /* 设置滑杆的过渡效果时间为 0.2 秒 (Webkit 浏览器) */
+  transition: opacity .2s; /* 设置滑杆的过渡效果时间为 0.2 秒 (其他浏览器) */
+  margin-right: 10px; /* 设置滑杆右侧外边距为 10 像素 */
+}
+
+/* Slider 值显示样式 */
+.sub-slider-input {
+  width: 10%; /* 设置显示值的宽度为 10% */
+  text-align: left; /* 设置显示值的文字居中对齐 */
+}
+
+.sub-slider-unit {
+  width: 10%;
+  text-align: center; /* 设置显示值的文字居中对齐 */
+}
